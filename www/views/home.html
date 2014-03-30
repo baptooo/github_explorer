@@ -1,0 +1,27 @@
+<ion-view title="Github Explorer">
+    <ion-content class="has-header has-footer" padding="true" ng-controller="SearchCtrl">
+        <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="search" ng-model="githubUser" placeholder="Github User">
+        </label>
+        <ion-button class="button button-block button-dark" ng-click="searchForUser()">
+            Search For User
+        </ion-button>
+        <ion-list ng-show="isCacheEmpty()" show-delete="true">
+            <div class="item item-divider text-center">
+                Already Searched Users
+            </div>
+            <ion-item class="item-delete" ng-repeat="user in cache" href="#/user/{{user.login}}" ng-click="updateCurrentUser(user)">
+                {{user.login}}
+            </ion-item>
+
+            <shake ng-show="shaked">
+                <ion-item class="item-avatar" href="#doge">
+                    <img src="http://placedoge.net/80/80" alt=""/>
+                    <h2>Watch the Doge</h2>
+                    <p>Oh yeah, wonderful Doge !</p>
+                </ion-item>
+            </shake>
+        </ion-list>
+    </ion-content>
+</ion-view>

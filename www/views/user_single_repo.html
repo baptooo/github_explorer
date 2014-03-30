@@ -1,0 +1,42 @@
+<ion-view title="Single Repo">
+    <ion-content class="has-header has-footer"  ng-controller="SingleRepoCtrl" padding="true">
+        <ion-list>
+            <ion-item class="item-icon-left">
+                <i class="icon ion-social-github"></i>
+                <h2>{{repo.name}}</h2>
+                <p>{{repo.description}}</p>
+            </ion-item>
+            <ion-item>
+                <span class="input-label">Language</span>
+                {{repo.language}}
+            </ion-item>
+            <ion-item>
+                <span class="input-label">Creation</span>
+                {{repo.created_at | date}}
+            </ion-item>
+            <ion-item>
+                <span class="input-label">Last Update</span>
+                {{repo.updated_at | date}}
+            </ion-item>
+            <ion-item class="item-icon-left">
+                <i class="icon ion-star"></i>
+                Stars
+                <span class="badge badge-{{repo.stargazers_count ? 'positive' : 'assertive'}}">{{repo.stargazers_count}}</span>
+            </ion-item>
+            <ion-item class="item-icon-left">
+                <i class="icon ion-fork-repo"></i>
+                <span class="input-label">Forks</span>
+                <span class="badge badge-{{repo.forks ? 'positive' : 'assertive'}}">{{repo.forks}}</span>
+            </ion-item>
+            <ion-item>
+                <span class="input-label">Size</span>
+                <span class="badge badge-balanced">{{repo.size}}kB</span>
+            </ion-item>
+
+            <ion-item class="item-icon-left" href="{{repo.html_url}}">
+                <i class="icon ion-link"></i>
+                Visit the Project
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

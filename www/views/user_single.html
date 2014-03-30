@@ -1,0 +1,42 @@
+<ion-view title="User">
+    <ion-content class="has-header has-footer" ng-controller="UserSingleCtrl" padding="true">
+        <ion-list>
+            <ion-item class="item-icon-left">
+                <i class="icon ion-social-github"></i>
+                <h2>{{user.login}}</h2>
+                <p>{{user.name}}</p>
+            </ion-item>
+            <ion-item class="item-image">
+                <img style="width: 100%" ng-src="{{user.avatar_url}}" alt=""/>
+            </ion-item>
+            <ion-item class="item-icon-left" href="#user/{{user.login}}/repos">
+                <i class="icon ion-folder"></i>
+                Repos
+                <span class="badge badge-{{user.public_repos ? 'positive' : 'assertive'}}">{{user.public_repos}}</span>
+            </ion-item>
+            <ion-item class="item-icon-left">
+                <i class="icon ion-folder"></i>
+                Gists
+                <span class="badge badge-{{user.public_gists ? 'positive' : 'assertive'}}">{{user.public_gists}}</span>
+            </ion-item>
+            <ion-item class="item-icon-left" href="{{user.starred_url}}">
+                <i class="icon ion-star"></i>
+                Stars
+            </ion-item>
+            <ion-item class="item-icon-left">
+                <i class="icon ion-thumbsup"></i>
+                Followers
+                <span class="badge badge-{{user.followers ? 'positive' : 'assertive'}}">{{user.followers}}</span>
+            </ion-item>
+            <ion-item class="item-icon-left">
+                <i class="icon ion-thumbsup"></i>
+                Followings
+                <span class="badge badge-{{user.following ? 'positive' : 'assertive'}}">{{user.following}}</span>
+            </ion-item>
+            <ion-item class="item-icon-right text-center" ng-click="sendEmail()">
+                Email this user
+                <i class="icon ion-ios7-email"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

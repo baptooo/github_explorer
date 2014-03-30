@@ -1,0 +1,23 @@
+<ion-view title="Repos List">
+    <ion-content class="has-header has-footer" ng-controller="UserReposCtrl">
+        <div class="text-center size" ng-show="loading">
+            <i class="icon ion-loading-d"></i>
+        </div>
+        <ion-list ng-hide="loading" class="fade-in-not-out">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" ng-model="search.name" placeholder="Filter">
+            </label>
+            <ion-item
+                class="item-icon-left"
+                ng-repeat="repo in repos | filter:search:strict"
+                href="#repo/{{repo.name}}"
+                ng-click="setCurrentRepo(repo)"
+            >
+                <i class="icon ion-document"></i>
+                <h2>{{repo.name}}</h2>
+                <p>{{repo.description}}</p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

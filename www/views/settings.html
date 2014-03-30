@@ -1,0 +1,15 @@
+<ion-view title="Settings">
+    <ion-content ng-controller="SettingsCtrl">
+        <ion-list>
+            <div class="item item-toggle" ng-repeat="(option, state) in settings">
+                {{option}}
+                <label class="toggle toggle-dark">
+                    <input type="checkbox" ng-model="state" ng-click="set(option, state)">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>
